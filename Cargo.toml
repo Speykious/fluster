@@ -1,0 +1,77 @@
+[package]
+name = "fluster"
+description = "A native desktop client for Fluxer."
+authors = ["Speykious"]
+license = "AGPL-3.0"
+version = "0.1.0"
+edition = "2024"
+repository = "https://github.com/Speykious/fluster"
+
+
+[dependencies]
+colorsys = "0.7.3"
+dioxus-devtools = "0.7.4"
+jiff = { version = "0.2", features = ["serde"] }
+open = "5.3"
+
+# Windowing
+winit = "0.30.13"
+
+# UI
+image = { version = "0.25", default-features = false, features = [
+	"png",
+] }
+rust-i18n = "3.1.5"
+uing = { git = "https://git.speykious.dev/Speykious/uing.git", rev = "3db56bc", features = [
+	"inspector",
+	"image",
+	"winit",
+] }
+
+# Logging, Error handling
+thiserror = "2.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+
+[profile.release]
+codegen-units = 1
+lto = true
+
+[profile.max]
+inherits = "release"
+panic = "abort"
+
+
+[lints.clippy]
+
+# This lint triggers when we write a classic "is even" condition like
+# `my_var % 2 == 0`, which is frankly ridiculous. I'd rather write this myself,
+# because it is so recognizable that the `is_multiple_of` method doesn't help
+# its readability.
+manual_is_multiple_of = "allow"
+
+# We don't always want to collapse ifs and elses. Sometimes it's more readable that way.
+collapsible_if = "allow"
+collapsible_else_if = "allow"
+
+# Creating a variable right before returning it is not a bad practice, it can help with debugging and/or readability.
+let_and_return = "allow"
+
+# Let me create functions with more than 7 arguments in peace!
+too_many_arguments = "allow"
+
+
+# Make target file smaller by not generating debug symbols.
+# If somehow a problem occurs in a dependency, we can comment it out temporarily.
+[profile.dev.package."*"]
+debug = false
+opt-level = 2
+
+[profile.dev.package.uing]
+debug = true
+opt-level = 1
+
+[profile.dev.package.frienderer]
+debug = true
+opt-level = 1

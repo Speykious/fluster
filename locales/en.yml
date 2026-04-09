@@ -1,0 +1,50 @@
+_version: 1
+
+app-name: Fluxer
+
+login:
+  welcome_back: Welcome back
+  email: Email
+  password: Password
+  forgot_password: Forgot your password?
+  log_in: Log in
+  or: OR
+  log_in_with_passkey: Log in with a passkey
+  log_in_via_browser: Log in via browser
+  need_account: Need an account?
+  register: Register
+
+register:
+  create_an_account: Create an account
+  display_name_optional: Display Name (Optional)
+  what_should_people_call_you: What should people call you?
+  username_optional: Username (Optional)
+  leave_blank_for_random_username: Leave blank for a random username
+  four_digit_tag_footer: A 4-digit tag will be added automatically to ensure uniqueness
+  confirm_password: Confirm password
+  date_of_birth: Date of birth
+  tos_agreement_p1: I agree to the
+  tos_agreement_p2: and
+  terms_of_service: Terms of Service
+  privacy_policy: Privacy Policy
+  create_account: Create account
+  already_have_account: Need an account?
+  login: Log in
+
+calendar:
+  day: Day
+  month: Month
+  year: Year
+
+  january: January
+  february: February
+  march: March
+  april: April
+  may: May
+  june: June
+  july: July
+  august: August
+  september: September
+  october: October
+  november: November
+  december: December
