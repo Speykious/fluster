@@ -828,9 +828,9 @@ checksum = "aa9a19cbb55df58761df49b23516a86d432839add4af60fc256da840f66ed35b"
 
 [[package]]
 name = "frienderer"
-version = "0.11.3"
+version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3ca3d1e906abc6ad023cff486ef264515ad0602912d2d5d4251533ac2ccd7cce"
+checksum = "4be69d8f6435f81896013e5e95ce9312d1ef089bc7d644e93f69fabe455dd0bc"
 dependencies = [
  "glam",
  "glow",
@@ -3181,7 +3181,7 @@ checksum = "562d481066bde0658276a35467c4af00bdc6ee726305698a55b86e61d7ad82bb"
 [[package]]
 name = "uing"
 version = "0.1.0"
-source = "git+https://git.speykious.dev/Speykious/uing.git?rev=3db56bc#3db56bc92e89fd1dfdc44fc964fbf48a503afdcf"
+source = "git+https://git.speykious.dev/Speykious/uing.git?rev=48af6e8#48af6e8700bd92174bd69f2f36c88dfd6ff238bc"
 dependencies = [
  "arboard",
  "cursor-icon",

@@ -22,7 +22,7 @@ image = { version = "0.25", default-features = false, features = [
 	"png",
 ] }
 rust-i18n = "3.1.5"
-uing = { git = "https://git.speykious.dev/Speykious/uing.git", rev = "3db56bc", features = [
+uing = { git = "https://git.speykious.dev/Speykious/uing.git", rev = "48af6e8", features = [
 	"inspector",
 	"image",
 	"winit",
