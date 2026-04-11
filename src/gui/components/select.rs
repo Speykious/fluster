@@ -1,12 +1,7 @@
 use std::{cell::Cell, f32::consts::PI};
 
 use uing::{
-	UiContext, WidgetKey, WidgetReaction,
-	anime::AnimSodProps,
-	components::ButtonColors,
-	glam::{Vec2, Vec4},
-	prelude::{Af, FILL, HUG_ROUND, fixed},
-	wk,
+	Anchor, UiContext, WidgetKey, WidgetReaction, anime::AnimSodProps, components::ButtonColors, glam::{Vec2, Vec4}, prelude::{Af, FILL, HUG_ROUND, fixed}, wk
 };
 use winit::window::CursorIcon;
 
@@ -72,7 +67,7 @@ pub fn select(
 				};
 
 				let icon = phosphor_icon_bold(ui, wk!([key]), PhosphorIcon::Control, FONT_SIZE_SM, icon_color)
-					.center()
+					.anchor_origin(Anchor::CENTER, Anchor { x: 0.5, y: 0.37 })
 					.rotation(if selected_state.get() { 0.0 } else { -PI })
 					.anim_flags(Af::ROTATION)
 					.anim_pos_curve(AnimSodProps::new(8.0, 1.0, 0.0))
