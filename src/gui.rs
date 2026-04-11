@@ -91,6 +91,9 @@ impl MainScene {
 		ui.color_focus = theme.brand_primary;
 		ui.color_text_select = theme.border_color_focus;
 
+		// Ok let's try this as an experiment
+		ui.act_on_press = true;
+
 		const IBM_PLEX_SANS: &[u8] = include_bytes!("../assets/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf");
 		const BRICOLAGE_GROTESQUE: &[u8] = include_bytes!("../assets/fonts/BricolageGrotesque-ExtraBold.trimmed.ttf");
 		const PHOSPHOR_FILL_ICONS: &[u8] = include_bytes!("../assets/fonts/Phosphor-Fill.trimmed.ttf");
