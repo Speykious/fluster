@@ -62,7 +62,7 @@ pub fn select(
 				};
 
 				let tp = (theme.tp_regular(FONT_SIZE_SM)).color(text_color);
-				let label = (ui.text(wk!([key]), text, &tp)).center_left().size_fill().build();
+				let label = (ui.text(wk!([key]), text, &tp)).center_left().size_wh(FILL, HUG_ROUND).build();
 				ui.add_child(select_box, label);
 
 				let icon_color = if select_box.hovered() {
