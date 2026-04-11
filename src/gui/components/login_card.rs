@@ -39,7 +39,8 @@ pub struct LoginCardReaction {
 pub fn login_card(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Renderer) -> LoginCardReaction {
 	let form;
 
-	let login_box_width = 896.0;
+	let login_box_width: f32 = 896.0;
+	let logo_size_width: f32 = (login_box_width / 3.0).round();
 
 	let card = (ui.build_widget(wk!()))
 		.flex_row(0.0)
@@ -50,7 +51,7 @@ pub fn login_card(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Ren
 		.build();
 	{
 		let logo_side = (ui.build_widget(wk!()))
-			.size_wh(fixed(login_box_width / 3.0), FILL_RESPECT_HUG)
+			.size_wh(fixed(logo_size_width), FILL_RESPECT_HUG)
 			.border(state.theme.background_modifier_accent, Vec4::Y, Vec4::ZERO)
 			.pad_hv(SPACING_8, SPACING_12)
 			.build();
@@ -87,7 +88,7 @@ pub fn login_card(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Ren
 		ui.add_child(card, logo_side);
 
 		form = (ui.build_widget(wk!()))
-			.size_wh(fixed(login_box_width * 2.0 / 3.0), FILL_RESPECT_HUG)
+			.size_wh(fixed(login_box_width - logo_size_width), FILL_RESPECT_HUG)
 			.pad_hv(SPACING_12, SPACING_12)
 			.flex_col(SPACING_6)
 			.build();
