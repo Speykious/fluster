@@ -18,11 +18,9 @@ open = "5.3"
 winit = "0.30.13"
 
 # UI
-image = { version = "0.25", default-features = false, features = [
-	"png",
-] }
-rust-i18n = "3.1.5"
-uing = { git = "https://git.speykious.dev/Speykious/uing.git", rev = "48af6e8", features = [
+image = { version = "0.25", default-features = false, features = ["png"] }
+rust-i18n = "4.0"
+uing = { git = "https://git.speykious.dev/Speykious/uing.git", rev = "eed22fb", features = [
 	"inspector",
 	"image",
 	"winit",
