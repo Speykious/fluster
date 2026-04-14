@@ -345,7 +345,7 @@ pub struct Theme {
 impl Theme {
 	pub fn tp_regular(&self, font_size: f32) -> TextProps<'static> {
 		TextProps {
-			font_stack: "'IBM Plex Sans', sans-serif",
+			font_stack: "'Noto Color Emoji', 'IBM Plex Sans', sans-serif",
 			font_size,
 			color: self.text_primary,
 			..TextProps::new()

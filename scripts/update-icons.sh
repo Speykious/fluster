@@ -78,6 +78,12 @@ function trim_phosphor_font () {
 	    --output-file="$FONT_FOLDER/Phosphor-$FONT_TYPE_PASCALCASE.trimmed.ttf"
 }
 
+echo "Trimming emoji font..." >/dev/stderr
+fonttools subset \
+    "$FONT_FOLDER_TEMP/NotoColorEmoji.ttf" \
+    --unicodes="2300-23ff,24c2,25a0-27bf,2b1b,2b1c,2b50,2b55,3297,3299,1f004,1f0cf,1f100-1f64f,1f680-1f6ff,1f7e0-1f7eb,1f900-1f9ff,1fa70,1fa95" \
+    --output-file="$FONT_FOLDER/NotoColorEmoji.trimmed.ttf"
+
 ENUM_FIELDS_FILL="$(trim_phosphor_font fill "$ICONS_FILL")"
 ENUM_FIELDS_BOLD="$(trim_phosphor_font bold "$ICONS_BOLD")"
 

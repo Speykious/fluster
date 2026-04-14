@@ -94,10 +94,12 @@ impl MainScene {
 		// Ok let's try this as an experiment
 		ui.act_on_press = true;
 
+		const NOTO_COLOR_EMOJI: &[u8] = include_bytes!("../assets/fonts/NotoColorEmoji.trimmed.ttf");
 		const IBM_PLEX_SANS: &[u8] = include_bytes!("../assets/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf");
 		const BRICOLAGE_GROTESQUE: &[u8] = include_bytes!("../assets/fonts/BricolageGrotesque-ExtraBold.trimmed.ttf");
 		const PHOSPHOR_FILL_ICONS: &[u8] = include_bytes!("../assets/fonts/Phosphor-Fill.trimmed.ttf");
 		const PHOSPHOR_BOLD_ICONS: &[u8] = include_bytes!("../assets/fonts/Phosphor-Bold.trimmed.ttf");
+		ui.register_font(Arc::new(NOTO_COLOR_EMOJI));
 		ui.register_font(Arc::new(IBM_PLEX_SANS));
 		ui.register_font(Arc::new(BRICOLAGE_GROTESQUE));
 		ui.register_font(Arc::new(PHOSPHOR_FILL_ICONS));
