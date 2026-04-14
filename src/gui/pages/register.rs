@@ -85,7 +85,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 					.build();
 				{
 					let year_input = input_field()
-						.subtext(Some(&t!("calendar.year")))
+						.placeholder(Some(&t!("calendar.year")))
 						.build(ui, &state.theme, wk!());
 					ui.add_child(fieldsets, year_input);
 
@@ -115,7 +115,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 					ui.add_child(fieldsets, select_container);
 
 					let day_input = input_field()
-						.subtext(Some(&t!("calendar.day")))
+						.placeholder(Some(&t!("calendar.day")))
 						.build(ui, &state.theme, wk!());
 					ui.add_child(fieldsets, day_input);
 				}

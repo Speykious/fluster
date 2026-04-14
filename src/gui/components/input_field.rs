@@ -76,6 +76,7 @@ pub struct InputFieldBuilder<'a> {
 	icon_start: Option<PhosphorIcon>,
 	icon_end: Option<PhosphorIcon>,
 	label: Option<&'a str>,
+	placeholder: Option<&'a str>,
 	subtext: Option<&'a str>,
 	status: ElementStatus,
 }
@@ -104,6 +105,11 @@ impl<'a> InputFieldBuilder<'a> {
 	#[inline(always)]
 	pub fn label(self, label: Option<&'a str>) -> Self {
 		Self { label, ..self }
+	}
+
+	#[inline(always)]
+	pub fn placeholder(self, placeholder: Option<&'a str>) -> Self {
+		Self { placeholder, ..self }
 	}
 
 	#[inline(always)]
@@ -149,6 +155,8 @@ impl<'a> InputFieldBuilder<'a> {
 						.size_wh(FILL, HUG_ROUND)
 				},
 				&theme.tp_regular(FONT_SIZE_SM),
+				self.placeholder.unwrap_or_default(),
+				theme.text_tertiary,
 			);
 			{
 				if let Some(icon_start) = self.icon_start {

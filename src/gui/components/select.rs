@@ -1,7 +1,12 @@
 use std::{cell::Cell, f32::consts::PI};
 
 use uing::{
-	Anchor, UiContext, WidgetKey, WidgetReaction, anime::AnimSodProps, components::ButtonColors, glam::{Vec2, Vec4}, prelude::{Af, FILL, HUG_ROUND, fixed}, wk
+	Anchor, UiContext, WidgetKey, WidgetReaction,
+	anime::AnimSodProps,
+	components::ButtonColors,
+	glam::{Vec2, Vec4},
+	prelude::{Af, FILL, HUG_ROUND, fixed},
+	wk,
 };
 use winit::window::CursorIcon;
 
@@ -51,13 +56,14 @@ pub fn select(
 				let (text, text_color) = if let Some(n) = *selected_elem {
 					(choices[n], theme.text_primary)
 				} else {
-					// TODO: using the placeholder would be better, but I went for subtext instead
-					//       just because I haven't implemented text input placeholder yet...
-					("", theme.text_tertiary)
+					(placeholder, theme.text_tertiary)
 				};
 
 				let tp = (theme.tp_regular(FONT_SIZE_SM)).color(text_color);
-				let label = (ui.text(wk!([key]), text, &tp)).center_left().size_wh(FILL, HUG_ROUND).build();
+				let label = (ui.text(wk!([key]), text, &tp))
+					.center_left()
+					.size_wh(FILL, HUG_ROUND)
+					.build();
 				ui.add_child(select_box, label);
 
 				let icon_color = if select_box.hovered() {
@@ -75,12 +81,6 @@ pub fn select(
 				ui.add_child(select_box, icon);
 			}
 			ui.add_child(select_subcontainer, select_box);
-
-			if !placeholder.is_empty() {
-				let subtext_props = theme.tp_regular(FONT_SIZE_SM).color(theme.text_tertiary);
-				let label = ui.text(wk!([key]), placeholder, &subtext_props).size_fill().build();
-				ui.add_child(select_subcontainer, label);
-			}
 		}
 		ui.add_child(select_container, select_subcontainer);
 
