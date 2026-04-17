@@ -170,6 +170,7 @@ impl UingApp<KeyEvent> for MainScene {
 					true => match key {
 						Key::Character("a") => TextInputAction::SelectAll,
 						Key::Character("c") => TextInputAction::Copy,
+						Key::Character("x") => TextInputAction::Cut,
 						Key::Character("v") => TextInputAction::Paste,
 						_ => break 'text_input,
 					},
@@ -180,7 +181,7 @@ impl UingApp<KeyEvent> for MainScene {
 				_ => break 'text_input,
 			};
 
-			if ui.on_text_input_action(action, ui.modifier_shift(), text) {
+			if ui.on_text_input_action(action, ui.modifier_shift(), text, None) {
 				return true;
 			}
 		};
