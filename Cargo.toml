@@ -20,7 +20,7 @@ winit = "0.30.13"
 # UI
 image = { version = "0.25", default-features = false, features = ["png"] }
 rust-i18n = "4.0"
-uing = { git = "https://git.speykious.dev/Speykious/uing.git", rev = "0b4d796", features = [
+uing = { git = "https://git.speykious.dev/Speykious/uing.git", rev = "9654cee", features = [
 	"inspector",
 	"image",
 	"winit",
