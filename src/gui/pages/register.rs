@@ -84,9 +84,10 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 					.flex_row(SPACING_2)
 					.build();
 				{
-					let year_input = input_field()
-						.placeholder(Some(&t!("calendar.year")))
-						.build(ui, &state.theme, wk!());
+					let year_input =
+						input_field()
+							.placeholder(Some(&t!("calendar.year")))
+							.build(ui, &state.theme, wk!());
 					ui.add_child(fieldsets, year_input);
 
 					let select_container = (ui.build_widget(wk!()))
