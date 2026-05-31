@@ -3,7 +3,9 @@ _version: 1
 app-name: Fluxer
 
 login:
-  welcome_back: Welcome back
+  welcome_back: |-
+    Welcome back
+    👍😇🤣😂🫥😴🤯😭🤬👿💀😹❤️🤖💥🫵
   email: Email
   password: Password
   forgot_password: Forgot your password?
@@ -13,6 +15,10 @@ login:
   log_in_via_browser: Log in via browser
   need_account: Need an account?
   register: Register
+  nothing_else: |-
+    There's nothing else to see here.
+    You can just click that button.
+    Trust me.
 
 register:
   create_an_account: Create an account

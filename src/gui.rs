@@ -71,8 +71,8 @@ struct SceneState {
 	logo_128: Option<TextureHandle>,
 	page_id: PageId,
 
-	thing: Option<usize>,
-	thonk: bool,
+	selected_month: Option<usize>,
+	agree: bool,
 }
 
 pub struct MainScene {
@@ -94,12 +94,14 @@ impl MainScene {
 		// Ok let's try this as an experiment
 		ui.act_on_press = true;
 
-		const NOTO_COLOR_EMOJI: &[u8] = include_bytes!("../assets/fonts/NotoColorEmoji.trimmed.ttf");
+		const TWEMOJI_COLR: &[u8] = include_bytes!("../assets/fonts/TwemojiCOLRv0.trimmed.ttf");
+		// const NOTO_COLOR_EMOJI: &[u8] = include_bytes!("../assets/fonts/NotoColorEmoji.trimmed.ttf");
 		const IBM_PLEX_SANS: &[u8] = include_bytes!("../assets/fonts/IBMPlexSans-VariableFont_wdth,wght.ttf");
 		const BRICOLAGE_GROTESQUE: &[u8] = include_bytes!("../assets/fonts/BricolageGrotesque-ExtraBold.trimmed.ttf");
 		const PHOSPHOR_FILL_ICONS: &[u8] = include_bytes!("../assets/fonts/Phosphor-Fill.trimmed.ttf");
 		const PHOSPHOR_BOLD_ICONS: &[u8] = include_bytes!("../assets/fonts/Phosphor-Bold.trimmed.ttf");
-		ui.register_font(Arc::new(NOTO_COLOR_EMOJI));
+		ui.register_font(Arc::new(TWEMOJI_COLR));
+		// ui.register_font(Arc::new(NOTO_COLOR_EMOJI));
 		ui.register_font(Arc::new(IBM_PLEX_SANS));
 		ui.register_font(Arc::new(BRICOLAGE_GROTESQUE));
 		ui.register_font(Arc::new(PHOSPHOR_FILL_ICONS));
@@ -112,8 +114,8 @@ impl MainScene {
 				logo_128: None,
 				page_id: PageId::Login,
 
-				thing: None,
-				thonk: false,
+				selected_month: None,
+				agree: false,
 			},
 		}
 	}
@@ -199,6 +201,9 @@ impl UingApp<KeyEvent> for MainScene {
 			}
 			(ElementState::Released, Key::Named(NamedKey::Escape)) => {
 				ui.focus_on(None);
+			}
+			(ElementState::Released, Key::Character("c")) => {
+				ui.copy_global_selected_text_to_clipboard();
 			}
 			(ElementState::Released, Key::Named(NamedKey::F12)) => {
 				ui.inspector.toggle();

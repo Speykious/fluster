@@ -21,11 +21,11 @@ use std::{cell::Cell, f32::consts::TAU};
 
 use uing::{
 	TextProps, UiContext, Widget, WidgetBuilder, WidgetKey,
-	frienderer::{Color, DrawCommand, RRect, Renderer},
+	frienderer::{Color, DrawCommand, HyperQuad, Renderer},
 	glam::{Vec2, Vec4, vec2},
 };
 
-use crate::gui::theme::{BLACK, TRANSPARENT_WHITE};
+use crate::gui::theme::BLACK;
 
 /// Subset of Phosphor Icons, only ones used within Fluster.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
@@ -46,7 +46,7 @@ pub fn phosphor_icon_fill(
 	color: Color,
 ) -> WidgetBuilder<'_> {
 	let s = char::from_u32(icon as u32).unwrap().to_string();
-	ui.text(key, &s, &tp_icon_fill(font_size).color(color))
+	ui.text(key, &s, &tp_icon_fill(font_size).color(color)).not_selectable()
 }
 
 pub fn phosphor_icon_bold(
@@ -57,7 +57,7 @@ pub fn phosphor_icon_bold(
 	color: Color,
 ) -> WidgetBuilder<'_> {
 	let s = char::from_u32(icon as u32).unwrap().to_string();
-	ui.text(key, &s, &tp_icon_bold(font_size).color(color))
+	ui.text(key, &s, &tp_icon_bold(font_size).color(color)).not_selectable()
 }
 
 pub const fn tp_icon_fill(font_size: f32) -> TextProps<'static> {
@@ -89,9 +89,8 @@ pub fn loading_anim(ui: &mut UiContext, key: WidgetKey, size: f32, color: Color)
 
 		let circle_gap = rect.size.x / 20.0;
 		let circle_size = (rect.size.x - 4.0 * circle_gap) / 3.0;
-		let border_radius = Vec4::splat(circle_size / 2.0);
-		let fill_color = widget.props.color;
-		let stroke_color = fill_color & TRANSPARENT_WHITE;
+		let radius = Vec4::splat(circle_size / 2.0);
+		let color = widget.props.color;
 
 		let anim_state = ui.get_state::<Cell<f32>>(widget.key).unwrap();
 		let t = anim_state.get() * 6.0;
@@ -109,32 +108,26 @@ pub fn loading_anim(ui: &mut UiContext, key: WidgetKey, size: f32, color: Color)
 		let x3 = x1 + (circle_gap + circle_size);
 
 		renderer.push_draw_commands(&[
-			DrawCommand::RRect(RRect {
+			DrawCommand::Quad(HyperQuad {
 				pos: vec2(x1, y1),
 				size: Vec2::splat(circle_size),
-				border_radius,
-				border_width: Vec4::ZERO,
-				fill_color,
-				stroke_color,
-				box_blur: 0.0,
+				radius,
+				color,
+				..Default::default()
 			}),
-			DrawCommand::RRect(RRect {
+			DrawCommand::Quad(HyperQuad {
 				pos: vec2(x2, y2),
 				size: Vec2::splat(circle_size),
-				border_radius,
-				border_width: Vec4::ZERO,
-				fill_color,
-				stroke_color,
-				box_blur: 0.0,
+				radius,
+				color,
+				..Default::default()
 			}),
-			DrawCommand::RRect(RRect {
+			DrawCommand::Quad(HyperQuad {
 				pos: vec2(x3, y3),
 				size: Vec2::splat(circle_size),
-				border_radius,
-				border_width: Vec4::ZERO,
-				fill_color,
-				stroke_color,
-				box_blur: 0.0,
+				radius,
+				color,
+				..Default::default()
 			}),
 		]);
 	}

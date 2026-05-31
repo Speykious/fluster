@@ -110,7 +110,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 						];
 						let placeholder: &str = &t!("calendar.month");
 
-						let select_month = select(ui, &state.theme, wk!(), placeholder, choices, &mut state.thing);
+						let select_month = select(ui, &state.theme, wk!(), placeholder, choices, &mut state.selected_month);
 						ui.add_child(select_container, select_month);
 					}
 					ui.add_child(fieldsets, select_container);
@@ -126,7 +126,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 
 			let agree_tos_privacy = (ui.build_widget(wk!())).size_hug_round().flex_row(SPACING_2).build();
 			{
-				let agree = checkbox(ui, &state.theme, wk!(), &mut state.thonk);
+				let agree = checkbox(ui, &state.theme, wk!(), &mut state.agree);
 				ui.add_child(agree_tos_privacy, agree);
 
 				let tos_privacy = (ui.build_widget(wk!())).size_hug_round().flex_row(4.0).center().build();
@@ -184,6 +184,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 					.build(ui, &state.theme, wk!());
 				if login_btn.clicked() {
 					state.page_id = PageId::Login;
+					ui.clear_global_selected_text(); // Prevent junk text selection happening right on page change
 				}
 				ui.add_child(already_have_account, login_btn);
 			}
