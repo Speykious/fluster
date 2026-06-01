@@ -132,7 +132,6 @@ pub fn login(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Renderer
 						.build(ui, &state.theme, wk!());
 					if register_btn.clicked() {
 						state.page_id = PageId::Register;
-						ui.clear_global_selected_text(); // Prevent junk text selection happening right on page change
 					}
 					ui.add_child(need_account, register_btn);
 				}
