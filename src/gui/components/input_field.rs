@@ -186,7 +186,7 @@ impl<'a> InputFieldBuilder<'a> {
 						.icon_start(Some(icon))
 						.anchorigin(Anchor::CENTER)
 						.build(ui, theme, wk!([key]));
-					if toggle.clicked() {
+					if toggle.l_clicked() {
 						visibility_state.set(!visibility_state.get());
 					}
 					ui.add_child(input, toggle);

@@ -68,7 +68,7 @@ pub fn select(
 				.focusable()
 				.build();
 			{
-				if select_box.clicked() {
+				if select_box.l_clicked() {
 					selected_state.set(!selected_state.get());
 				}
 
@@ -109,6 +109,7 @@ pub fn select(
 				let dropdown = (ui.build_widget(wk!([key])))
 					.tag("Dropdown")
 					.clip_content()
+					.z_index(10)
 					.bottom_left()
 					.pos(SPACING_2 * Vec2::NEG_Y)
 					.color(theme.form_surface_background)
@@ -135,7 +136,7 @@ pub fn select(
 							.pad_all(SPACING_2_5)
 							.build();
 						{
-							if item.clicked() {
+							if item.l_clicked() {
 								*selected_elem = Some(i);
 								selected_state.set(false);
 							}

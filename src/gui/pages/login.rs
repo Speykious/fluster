@@ -130,7 +130,7 @@ pub fn login(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Renderer
 						.size(ButtonSize::Text)
 						.label(Some(&t!("login.register")))
 						.build(ui, &state.theme, wk!());
-					if register_btn.clicked() {
+					if register_btn.l_clicked() {
 						state.page_id = PageId::Register;
 					}
 					ui.add_child(need_account, register_btn);

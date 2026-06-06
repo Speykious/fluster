@@ -45,7 +45,7 @@ pub fn checkbox(ui: &mut UiContext, theme: &Theme, key: WidgetKey, state: &mut b
 		.focusable()
 		.build();
 	{
-		if container.clicked() {
+		if container.l_clicked() {
 			*state = !*state;
 		}
 

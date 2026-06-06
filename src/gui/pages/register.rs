@@ -141,7 +141,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 						.size(ButtonSize::Text)
 						.label(Some(&t!("register.terms_of_service")))
 						.build(ui, &state.theme, wk!());
-					if tos_btn.clicked() {
+					if tos_btn.l_clicked() {
 						let _ = open::that("https://fluxer.app/terms");
 					}
 					ui.add_child(tos_privacy, tos_btn);
@@ -154,7 +154,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 						.size(ButtonSize::Text)
 						.label(Some(&t!("register.privacy_policy")))
 						.build(ui, &state.theme, wk!());
-					if privacy_policy_btn.clicked() {
+					if privacy_policy_btn.l_clicked() {
 						let _ = open::that("https://fluxer.app/privacy");
 					}
 					ui.add_child(tos_privacy, privacy_policy_btn);
@@ -182,7 +182,7 @@ pub fn register(state: &mut SceneState, ui: &mut UiContext, renderer: &mut Rende
 					.size(ButtonSize::Text)
 					.label(Some(&t!("register.login")))
 					.build(ui, &state.theme, wk!());
-				if login_btn.clicked() {
+				if login_btn.l_clicked() {
 					state.page_id = PageId::Login;
 				}
 				ui.add_child(already_have_account, login_btn);

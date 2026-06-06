@@ -3183,7 +3183,7 @@ checksum = "40ce102ab67701b8526c123c1bab5cbe42d7040ccfd0f64af1a385808d2f43de"
 [[package]]
 name = "uing"
 version = "0.1.0"
-source = "git+https://git.speykious.dev/Speykious/uing.git?rev=76d7a69#76d7a69dd61148f06dd175b9675f1946fa3ca117"
+source = "git+https://git.speykious.dev/Speykious/uing.git?rev=772b859#772b859d77f854048a2ac399d13c188a0481d4c9"
 dependencies = [
  "arboard",
  "cursor-icon",

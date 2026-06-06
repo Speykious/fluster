@@ -157,7 +157,7 @@ impl<'a> ButtonBuilder<'a> {
 					.center()
 					.build();
 				{
-					let fg = if container.pressed() {
+					let fg = if container.l_held() {
 						btn_theme.press.fg
 					} else if container.hovered() {
 						btn_theme.hover.fg
