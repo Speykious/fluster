@@ -51,7 +51,7 @@ pub fn checkbox(ui: &mut UiContext, theme: &Theme, key: WidgetKey, state: &mut b
 
 		if *state {
 			let check = phosphor_icon_bold(ui, wk!([key]), PhosphorIcon::Check, 18.0, theme.text_primary)
-				.pos(vec2(0.0, -2.0))
+				.pos(vec2(0.0, -0.5))
 				.center()
 				.build();
 			ui.add_child(container, check);
