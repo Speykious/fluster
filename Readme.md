@@ -30,11 +30,19 @@ desktop app, while also looking 99.9% like Fluxer.
 
 <div align="center">
   <p><i>This project was made by a human, without the use of any LLM or AI agent. I prefer to code without any AI code-assisting tools.</i></p>
+  <a align="center" href="https://0rwx.com" style="padding-right: 16px;">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://0rwx.com/static/AI-0-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://0rwx.com/static/AI-0-light.svg">
+      <img alt="0RWX AI-0 logo" height="48" src="https://0rwx.com/static/AI-0-dark.svg">
+    </picture>
+  </a>
+  &nbsp;&nbsp;&nbsp;&nbsp;
   <a align="center" href="https://brainmade.org">
-	 	<picture>
-	    <source media="(prefers-color-scheme: dark)" srcset="https://brainmade.org/white-logo.svg">
-	    <source media="(prefers-color-scheme: light)" srcset="https://brainmade.org/black-logo.svg">
-	    <img alt="BrainMade logo" src="https://brainmade.org/white-logo.svg">
-	  </picture>
+   <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://brainmade.org/white-logo.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://brainmade.org/black-logo.svg">
+      <img alt="BrainMade logo" height="48" src="https://brainmade.org/white-logo.svg">
+    </picture>
   </a>
 </div>
